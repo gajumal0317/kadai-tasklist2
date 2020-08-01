@@ -1,10 +1,9 @@
 <% if logged_in? %>
 
-<%#= render 'tasks/form', task: @tasks %> <%#new.thml.erbへ移動%>
 <%= link_to '作成ページ', new_task_path %>
-  <div class="col-sm-8">
+<div class="col-sm-8">
 <%= render 'tasks/tasks', tasks: @tasks %>
-  </div>
+</div>
 
 <% else %>
 
@@ -13,7 +12,6 @@
   <div class="text-center">
     <h1>Welcome to the Tasklist</h1>
     <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-
   </div>
 </div>
 <% end %>

@@ -1,13 +1,11 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
     before_action :correct_user, only: [:show, :edit, :update, :destroy]
-    # before_action :set_task, only: [:show, :edit, :update]
+    
  
   def index
-   if logged_in?
-    @task = current_user.tasks.build  # form_with 用
+    @task = current_user.tasks.build
     @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-   end
   end
 
   def show
@@ -48,12 +46,9 @@ class TasksController < ApplicationController
     flash[:success] = 'Task は正常に削除されました'
     redirect_back(fallback_location: root_path)
   end
+
   
   private
-
-  # def set_task
-  #   @task = Task.find(id: params[:id])
-  # end
   
   def task_params
     params.require(:task).permit(:content, :status)
