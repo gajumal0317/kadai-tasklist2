@@ -1,10 +1,11 @@
 <% if logged_in? %>
 
-<%= render 'tasks/form', task: @tasks %>
-
+<%#= render 'tasks/form', task: @tasks %> <%#new.thml.erbへ移動%>
+<%= link_to '作成ページ', new_task_path %>
   <div class="col-sm-8">
 <%= render 'tasks/tasks', tasks: @tasks %>
   </div>
+
 <% else %>
 
 
